@@ -5,8 +5,10 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import GradientBoostingClassifier
 
-# Load the dataset
-data = pd.read_csv('advertising.csv')
+DATA_PATH = 'user_2.csv'
+
+# Load the dataset of the first 300 to 500 rows
+data = pd.read_csv(DATA_PATH)
 
 # Data Cleaning / scraping
 data.dropna(inplace=True)
@@ -52,7 +54,7 @@ print(f'Model Trained. Accuracy: {accuracy*100:.2f}%')
 def get_user_features(user_data=None):
     try:
         if user_data is None:
-            user_data = pd.read_csv('advertising.csv').sample(10)
+            user_data = pd.read_csv(DATA_PATH).sample(10)
         else:
             user_data = {
                 'Ad Topic Line': [user_data['Ad Topic Line']],
@@ -70,7 +72,7 @@ def get_user_features(user_data=None):
         user_data = pd.DataFrame(user_data)
 
         # append the user data to the original data
-        data = pd.read_csv('advertising.csv')
+        data = pd.read_csv(DATA_PATH)
         user_data = pd.concat([data, user_data])
 
         # Data Cleaning / scraping
@@ -84,6 +86,7 @@ def get_user_features(user_data=None):
             label_encoders[column] = le
 
         user_data = user_data[column_list]
+        # user_data = pd.concat([data, user_data])
 
         # take 5 random rows
         return user_data

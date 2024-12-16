@@ -1,8 +1,9 @@
 from app import Ad, db
+from model import DATA_PATH
 import pandas as pd
 
 # Load the dataset
-data = pd.read_csv('advertising.csv')
+data = pd.read_csv(DATA_PATH)
 
 
 def get_user_ads(user_id):
