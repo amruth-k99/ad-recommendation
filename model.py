@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import GradientBoostingClassifier
 
-DATA_PATH = 'user_2.csv'
+DATA_PATH = 'data/user_1.csv'
 
 # Load the dataset of the first 300 to 500 rows
 data = pd.read_csv(DATA_PATH)

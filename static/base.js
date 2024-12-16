@@ -8,7 +8,9 @@ function AdvertisementList({ initialAdvts, onAdClick }) {
           onClick={() => onAdClick(Advertisement)}
         >
           <h2 className="text-xl font-semibold">
-            {Advertisement["Ad Topic Line"]}
+            {Advertisement["Ad Topic Line"]} -
+            {Advertisement["Probabilities"] &&
+              ` ${Advertisement["Probabilities"] * 100}%`}
           </h2>
           <p className="text-gray-600">
             City: {Advertisement.City}, Country {Advertisement.Country}
